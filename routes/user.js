@@ -2,15 +2,18 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
+//model
+const User = require ('../models/User');
+
 
 router.get('/', (req, res) => {
-    res.render('./users/register');
-});
+    res.render('users/register');
+}); 
 router.get('/login', (req, res) => {
-    res.render('./users/login');
+    res.render('users/login');
 });
 router.get('/register',(req, res) => {
-    res.render('./users/register');
+    res.render('users/register');
     
 });
 
@@ -48,6 +51,5 @@ router.post('/register', (req,res)=>{
         res.redirect('/users/login');
     }
     
- 
 });
 module.exports = router;
